@@ -14,6 +14,7 @@ def product_list(request):
     if category_filter:
         products = products.filter(category__id=category_filter)
     
+    # if multiple tags are selected, we want to filter products that have all selected tags
     if tags_filter:
         for tag_id in tags_filter:
             products = products.filter(tags__id=tag_id)
